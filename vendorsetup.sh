@@ -15,5 +15,5 @@
 #
 
 for var in eng user userdebug; do
-  add_lunch_combo lineage_oxygen-$var
+  add_lunch_combo omni_oxygen-$var
 done

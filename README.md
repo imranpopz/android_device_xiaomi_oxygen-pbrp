@@ -25,13 +25,13 @@ This branch is for building TWRP.
 
 ### To build: 
 ```
-repo init -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_lineageos.git -b twrp-14.1
+repo init -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-7.1
 
 repo sync
 
 . build/envsetup.sh
 
-lunch lineage_oxygen-userdebug
+lunch omni_oxygen-userdebug
 
 make clean && make recoveryimage
 ```

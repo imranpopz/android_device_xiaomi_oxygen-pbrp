@@ -16,7 +16,7 @@
 #
 
 # Inherit device configuration
-$(call inherit-product, $(LOCAL_PATH)/device_oxygen.mk)
+$(call inherit-product, $(LOCAL_PATH)/device.mk)
 
 # Device display
 TARGET_SCREEN_HEIGHT := 1920
@@ -27,7 +27,7 @@ PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := oxygen
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := Mi MAX 2
-PRODUCT_NAME := lineage_oxygen
+PRODUCT_NAME := omni_oxygen
 PRODUCT_RELEASE_NAME := Mi MAX 2
 
 # Time Zone data for Recovery
