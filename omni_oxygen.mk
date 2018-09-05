@@ -29,7 +29,3 @@ PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := Mi MAX 2
 PRODUCT_NAME := omni_oxygen
 PRODUCT_RELEASE_NAME := Mi MAX 2
-
-# Time Zone data for Recovery
-PRODUCT_COPY_FILES += \
-    bionic/libc/zoneinfo/tzdata:recovery/root/system/usr/share/zoneinfo/tzdata
