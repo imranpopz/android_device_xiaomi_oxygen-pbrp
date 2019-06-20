@@ -1,6 +1,8 @@
 #
 # Copyright (C) 2017 The Android Open Source Project
 #
+# Copyright (C) 2018-2019 OrangeFox Recovery Project
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -40,8 +42,10 @@ TARGET_USES_64_BIT_BINDER := true
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
+TW_INCLUDE_FBE := true
+TW_INCLUDE_CRYPTO := true
 
-# Kernel informations
+# Kernel information
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78af000 androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
@@ -54,11 +58,15 @@ FOX_BUILD_FULL_KERNEL_SOURCES := 1
 endif
 
 ifeq ($(FOX_BUILD_FULL_KERNEL_SOURCES),1)
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_CONFIG := oxygen_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/oxygen
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+TARGET_KERNEL_CONFIG := oxygen-perf_defconfig
 else
-TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilds/kernel
+TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/Image-71-20190210.gz-dtb
+#TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/Image.gz-dtb
+ifeq ($(FOX_USE_STOCK_KERNEL),1)
+TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/Image-stock.gz-dtb
+endif
 PRODUCT_COPY_FILES += \
     $(TARGET_PREBUILT_KERNEL):kernel
 endif
@@ -70,9 +78,6 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 an
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET := 0x01000000
-
-# Prebuilt kernel
-TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilts/kernel
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 65536000
@@ -92,16 +97,24 @@ TARGET_USERIMAGES_USE_EXT4 := true
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi
-TW_INCLUDE_CRYPTO := true
-TW_MAX_BRIGHTNESS := 4095
+TW_MAX_BRIGHTNESS := 255
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_SCREEN_BLANK_ON_BOOT := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/twrp.fstab
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery.fstab
 BOARD_SUPPRESS_SECURE_ERASE := true
 RECOVERY_SDCARD_ON_DATA := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
+TW_EXCLUDE_SUPERSU := true
 TWRP_INCLUDE_LOGCAT := true
 TW_EXTRA_LANGUAGES := true
+TW_INCLUDE_FUSE_EXFAT := true
+TARGET_USES_64_BIT_BINDER := true
+#
+ifeq ($(FOX_USE_STOCK_KERNEL),1)
+TW_DEFAULT_BRIGHTNESS := 1850
+TW_MAX_BRIGHTNESS := 4095
+endif
+#
