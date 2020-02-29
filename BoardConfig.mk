@@ -1,7 +1,7 @@
 #
 # Copyright (C) 2017 The Android Open Source Project
 #
-# Copyright (C) 2018-2019 OrangeFox Recovery Project
+# Copyright (C) 2018-2020 OrangeFox Recovery Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -52,18 +52,12 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET := 0x01000000
 
-# OrangeFox Kernel
-ifeq ($(FOX_BUILD_FULL_KERNEL_SOURCES),)
-FOX_BUILD_FULL_KERNEL_SOURCES := 1
-endif
-
 ifeq ($(FOX_BUILD_FULL_KERNEL_SOURCES),1)
 TARGET_KERNEL_SOURCE := kernel/xiaomi/oxygen
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_CONFIG := oxygen-perf_defconfig
+TARGET_KERNEL_CONFIG := oxygen-fox_defconfig
 else
-TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/Image-71-20190210.gz-dtb
-#TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/Image.gz-dtb
+TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/Image.gz-dtb
 ifeq ($(FOX_USE_STOCK_KERNEL),1)
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/Image-stock.gz-dtb
 endif
