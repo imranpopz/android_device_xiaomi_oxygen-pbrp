@@ -21,11 +21,11 @@
 ## Device picture
 ![Mi MAX 2](http://i01.appmifile.com/webfile/globalimg/29/B8388A52-854A-94A5-D386-7F675F467FE1.jpg "Mi MAX 2")
 
-This branch is for building TWRP.
+This branch is for building OrangeFox.
 
 ### To build: 
 ```
-repo init -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-7.1
+repo init --depth=1 -u https://gitlab.com/OrangeFox/Manifest.git -b fox_8.1
 
 repo sync
 
