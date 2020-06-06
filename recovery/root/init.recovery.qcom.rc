@@ -32,6 +32,7 @@ on fs
     chown system system /dev/ion
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+    install_keyring
 
 on property:ro.crypto.state=encrypted
     start sbinqseecomd
