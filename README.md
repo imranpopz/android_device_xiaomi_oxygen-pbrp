@@ -1,6 +1,8 @@
-# Device Tree for Xiaomi MAX 2 (Oxygen)
+# Device tree for Xiaomi Mi Max 2 (codenamed _"oxygen"_)
 
-## Spec Sheet
+Kernel source: "https://github.com/Sanek-creed/kernel_pie.git"
+==================================
+## Device specifications
 
 | Feature                 | Specification                     |
 | :---------------------- | :-------------------------------- |
@@ -19,19 +21,28 @@
 | Release Date            | May 2017                          |
 
 ## Device picture
+
 ![Mi MAX 2](http://i01.appmifile.com/webfile/globalimg/29/B8388A52-854A-94A5-D386-7F675F467FE1.jpg "Mi MAX 2")
 
-This branch is for building OrangeFox.
-
-### To build: 
-```
-repo init --depth=1 -u https://gitlab.com/OrangeFox/Manifest.git -b fox_8.1
-
-repo sync
-
-. build/envsetup.sh
-
-lunch omni_oxygen-userdebug
-
-make clean && make recoveryimage
-```
+### Copyright
+ ```
+  /*
+  *  Copyright (C) 2013-2020 The TWRP
+  *
+  *  Copyright (C) 2019-2020 The OrangeFox Recovery Project
+  *
+  * This program is free software: you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation, either version 3 of the License, or
+  * (at your option) any later version.
+  *
+  * This program is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  * GNU General Public License for more details.
+  *
+  * You should have received a copy of the GNU General Public License
+  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  *
+  */
+  ```
