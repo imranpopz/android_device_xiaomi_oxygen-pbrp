@@ -9,7 +9,7 @@ jobs:
       MAINTAINER: '@sMaheshtechnicals0'
       VENDOR: 'xiaomi'
       CODENAME: 'oxygen'
-      FLAVOR: 'eng'
+      BUILD_LUNCH: 'omni_oxygen-eng'
       PB_OFFICIAL: 'true'
       CHANGELOG: |
         - - Bringup 3.0 
@@ -36,5 +36,5 @@ workflows:
       - build:
           filters:
             branches:
-              only: 'android-8.1'
+              only: 'pb_8.1'
           context: org-global
