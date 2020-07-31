@@ -9,11 +9,17 @@ jobs:
       VERSION: '3.0.0'
       VENDOR: 'xiaomi'
       CODENAME: 'oxygen'
-      FLAVOR: 'eng'
-      TEST_BUILD: 'true'
+      BUILD_LUNCH: 'omni_oxygen-eng'
       MAINTAINER: '@Maheshtechnicals0'
+      PB_OFFICIAL: 'true'
       CHANGELOG: |
-        TEST BUILD
+	- Bringup 3.0
+	- Source side changes
+	- Fully Redesigned UI
+	- New Android like Power Menu (Activated via power key hold)
+	- Flashlight toggled by Vol up(+) on hold
+	- Flashlight toggle on Lockscreen
+	- Etc.
     working_directory: /home/builder/pitchblack
     steps:
       - run:
